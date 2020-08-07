@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Generator rebusów</title>
+  </head>
+  <body>
+    <h1>Rebus generator</h1>
+    <hr>
+    <label for="text">Treść hasła:</label>
+    <input id="text" value="pierwszy automatyczny rebus"/>
+    <button id="generate-btn" onclick="generate()">Generuj</button>
+    <button id="export-btn" onclick="exportRebus()">Eksportuj</button>
+
+    <h2 id="result"></h2>
+    <div id='canvas-wrapper'></div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script>
+    // You can also require other files to run in this process
+    require('../renderer.js')
+  </script>
+</html>
