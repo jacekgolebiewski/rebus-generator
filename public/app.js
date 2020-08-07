@@ -1,3 +1,4 @@
+const fs = require('fs')
 const generator = require('./src/generator.js')
 
 async function generate() {

@@ -1,10 +1,40 @@
 {
     "dictionary": [
+        "-----zwierzęta-----",
         "kot",
         "pies",
-        "wszy",
-        "pi",
+        "krowa",
+        "koń",
+        "zając",
+        "królik",
+        "bóbr",
+        "lama",
+        "wielbłąd",
+        "słoń",
+        "małpa",
+        "mrówka",
+        "pszczoła",
+        "osa",
+        "komar",
+        "tygrys",
+        "lew",
+
+        "-----jedzenie-----",
         "ser",
+        "jabłko",
+        "gruszka",
+        "pomidor",
+        "banan",
+
+        "-----symbole-----",
+        "pi",
+
+        "-----zabawne-----",
+        "man",
+        "tom hanks",
+
+        "-----inne-----",
+        "wszy",
         "auto",
         "materac",
         "bus"
