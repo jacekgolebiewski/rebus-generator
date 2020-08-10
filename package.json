@@ -16,6 +16,7 @@
         "electron-reload": "^1.2.2"
     },
     "dependencies": {
-        "diff": "^4.0.2"
+        "diff": "^4.0.2",
+        "yandex-pictures": "^1.4.88"
     }
 }

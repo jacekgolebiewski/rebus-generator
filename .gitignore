@@ -1,5 +1,5 @@
 .idea
-assets
+assets/**/*
 
 # macos
 .DS_Store

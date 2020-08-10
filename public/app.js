@@ -1,5 +1,6 @@
 const fs = require('fs')
 const generator = require('./src/generator.js')
+const assets = require('./src/assets.js');
 
 async function generateText() {
     const text = document.getElementById("text").value;
@@ -33,14 +34,10 @@ const DISTANCE = 10;
 const ELEMENT_SIZE = 200
 const HEIGHT = 300
 
-const FOLDER_FS_PREFIX = 'public/';
-const ASSETS_FOLDER = 'assets/';
 let CANVAS;
 
 function drawRebus(result) {
     const decodedRebus = decodeRebusText(result);
-
-    const fileNames = fs.readdirSync(FOLDER_FS_PREFIX + ASSETS_FOLDER);
     let sketch = function (p) {
         p.setup = async () => {
             const width = 2000;
@@ -60,7 +57,7 @@ function drawRebus(result) {
                         p.strokeWeight(1);
                         p.text(firstExpression.substr(1), offset, HEIGHT / 2 - 20);
                     } else {
-                        await drawImage(p, firstExpression.substr(1), offset, fileNames);
+                        await drawImage(p, firstExpression.substr(1), offset);
                         let offset2 = offset;
                         for(const elementExp of element) {
                             const expOperator = elementExp[0];
@@ -106,8 +103,8 @@ function decodeRebusText(result) {
 
 }
 
-async function drawImage(p, elementName, offset, fileNames) {
-    const fileName = getFileName(elementName, fileNames);
+async function drawImage(p, elementName, offset) {
+    const fileName = getFileName(elementName);
     if (!fileName) {
         return new Promise(resolve => {
             p.fill('gray');
@@ -133,12 +130,16 @@ function calculateElementWidth(element) {
     return elementResult;
 }
 
-function getFileName(name, fileNames) {
-    const matchingNames = fileNames.filter(el => el.startsWith(`${name}_`));
+const FOLDER_FS_PREFIX = 'public/';
+const ASSETS_FOLDER = 'assets/';
+
+function getFileName(name) {
+    const fileNames = assets.getAllSubFolders(FOLDER_FS_PREFIX + ASSETS_FOLDER);
+    const matchingNames = fileNames.filter(el => el.indexOf(`${name}_`) > -1);
     if (matchingNames.length === 0) {
         return undefined;
     }
-    return `${ASSETS_FOLDER}${randomFromArray(matchingNames)}`;
+    return `${ASSETS_FOLDER}${randomFromArray(matchingNames).substr((FOLDER_FS_PREFIX.length + ASSETS_FOLDER.length))}`;
 }
 
 function randomFromArray(arr) {
