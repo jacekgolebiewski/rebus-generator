@@ -6,10 +6,17 @@
   </head>
   <body>
     <h1>Rebus generator</h1>
+
     <hr>
-    <label for="text">Treść hasła:</label>
-    <input id="text" value="pierwszy automatyczny rebus"/>
-    <button id="generate-btn" onclick="generate()">Generuj</button>
+    <label for="text">Hasło:</label>
+    <input id="text" value="pierwszy automatyczny rebus" size="50"/>
+    <button onclick="generateText()">Generuj treść rebusu</button>
+
+    <br>
+    <label for="rebus-text">Treść rebusu</label>
+    <input id="rebus-text" value="" size="50"/>
+    <button onclick="generateRebus()">Generuj rebus</button>
+
     <button id="export-btn" onclick="exportRebus()">Eksportuj</button>
 
     <h2 id="result"></h2>
